@@ -21,7 +21,7 @@ function App() {
         {/* <React1819 /> */}
         <ErrorBoundary>
           <Otp length={6} />
-        </ErrorBoundary>
+        </ErrorBoundary
       </UserContext>
       {/* <Debounce />   */}
     </Provider>
