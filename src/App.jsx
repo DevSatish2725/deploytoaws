@@ -13,17 +13,17 @@ import Debounce from "./components/Debounce";
 function App() {
   return (
     <Provider store={store}>
-      {/* <UserContext> */}
-      {/* <Counter /> */}
-      {/* <WindowSize /> */}
-      {/* <Fetch /> */}
-      {/* <LocalStorage /> */}
-      {/* <React1819 /> */}
-      {/* <ErrorBoundary>
+      <UserContext>
+        {/* <Counter /> */}
+        {/* <WindowSize /> */}
+        {/* <Fetch /> */}
+        {/* <LocalStorage /> */}
+        {/* <React1819 /> */}
+        <ErrorBoundary>
           <Otp length={6} />
         </ErrorBoundary>
-      </UserContext> */}
-      <Debounce />  
+      </UserContext>
+      {/* <Debounce />   */}
     </Provider>
   );
 }
