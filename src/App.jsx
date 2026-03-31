@@ -14,14 +14,14 @@ function App() {
   return (
     <Provider store={store}>
       <UserContext>
-        {/* <Counter /> */}
+        <Counter />
         {/* <WindowSize /> */}
         {/* <Fetch /> */}
         {/* <LocalStorage /> */}
         {/* <React1819 /> */}
         <ErrorBoundary>
           <Otp length={6} />
-        </ErrorBoundary
+        </ErrorBoundary>
       </UserContext>
       {/* <Debounce />   */}
     </Provider>
