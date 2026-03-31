@@ -9,9 +9,9 @@ const Debounce = () => {
         debounce(debouncedFunction, 1000);
     };
   return (
-    <div>
+    <>
       <input onChange={handleChange} />
-    </div>
+    </>
   );
 };
 
