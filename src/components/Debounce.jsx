@@ -1,17 +1,21 @@
+import { useState } from "react";
 import { useDebounce } from "../custom-hooks/useDebounce";
 
 const Debounce = () => {
-    const debounce = useDebounce();
-    const handleChange = (event) => {
-        const debouncedFunction = () => {
-            console.log("Input changed", event.target.value);
-        };
-        debounce(debouncedFunction, 1000);
+  const [searchTerm, setSearchTerm] = useState("");
+  const debounce = useDebounce();
+  const handleChange = (event) => {
+    const debouncedFunction = () => {
+      setSearchTerm(event.target.value);
     };
+    debounce(debouncedFunction, 1000);
+  };
   return (
-    <>
-      <input onChange={handleChange} />
-    </>
+    <div>
+      <input onChange={handleChange} className="border border-b-black" />
+      <h1>Search Term:</h1>
+      <p>{searchTerm}</p>
+    </div>
   );
 };
 

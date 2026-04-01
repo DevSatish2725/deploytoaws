@@ -1,6 +1,8 @@
+import { lazy } from "react";
 import { Provider } from "react-redux";
-import Counter from "./components/Counter";
-import Otp from "./components/custom-components/Otp";
+const Counter = lazy(() => import("./components/Counter"));
+const Otp = lazy(() => import("./components/custom-components/Otp"));
+// import Otp from "./components/custom-components/Otp";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Fetch from "./components/Fetch";
 import LocalStorage from "./components/LocalStorage";
@@ -9,19 +11,21 @@ import WindowSize from "./components/WindowSize";
 import UserContext from "./contexts/UserContext";
 import { store } from "./store";
 import Debounce from "./components/Debounce";
+import Tabs from "./components/tabs/Tabs";
 
 function App() {
   return (
     <Provider store={store}>
       <UserContext>
-        <Counter />
+        {/* <Counter /> */}
         {/* <WindowSize /> */}
         {/* <Fetch /> */}
         {/* <LocalStorage /> */}
         {/* <React1819 /> */}
-        <ErrorBoundary>
+        {/* <ErrorBoundary>
           <Otp length={6} />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
+        <Tabs />
       </UserContext>
       {/* <Debounce />   */}
     </Provider>

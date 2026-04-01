@@ -1,0 +1,10 @@
+{
+  "name": "Nombre",
+  "age": "Edad",
+  "phoneNo": "Número de teléfono",
+  "address": "Dirección",
+  "hobby": "Pasatiempo",
+  "cricket": "Jugando al cricket",
+  "color": "Color",
+  "blue": "Azul"
+}
