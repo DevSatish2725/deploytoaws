@@ -1,10 +1,14 @@
 {
-  "name": "नाम",
-  "age": "उम्र",
-  "phoneNo": "फ़ोन नंबर",
-  "address": "पता",
-  "hobby": "शौक",
-  "cricket": "क्रिकेट खेलना",
-  "color": "रंग",
-  "blue": "नीला"
+  "nameLabel": "नाम",
+    "ageLabel": "उम्र",
+  "phoneNoLabel": "फ़ोन नंबर",
+  "addressLabel": "पता",
+  "hobbyLabel": "शौक",
+  "colorLabel": "रंग",
+  "hobby": "क्रिकेट खेलना",
+  "color": "नीला",
+  "name": "मुकेश",
+  "age": "१०",
+  "phoneNo": "८७९०९८७६५४",
+  "address": "डी-४९, हर्ष विहार"
 }

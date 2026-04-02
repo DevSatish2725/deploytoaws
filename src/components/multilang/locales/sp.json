@@ -1,10 +1,14 @@
 {
-  "name": "Nombre",
-  "age": "Edad",
-  "phoneNo": "Número de teléfono",
-  "address": "Dirección",
-  "hobby": "Pasatiempo",
-  "cricket": "Jugando al cricket",
-  "color": "Color",
-  "blue": "Azul"
+  "nameLabel": "Nombre",
+  "ageLabel": "Edad",
+  "phoneNoLabel": "Número de teléfono",
+  "addressLabel": "Dirección",
+  "hobbyLabel": "Pasatiempo",
+  "hobby": "Jugando al cricket",
+  "colorLabel": "Color",
+  "color": "Azul",
+  "name": "Mukesh",
+  "age": "10",
+  "phoneNo": "8790987654",
+  "address": "D-49, Harsh Vihar"
 }

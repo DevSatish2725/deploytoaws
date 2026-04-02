@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 const user = {
-  name: "Mukesh",
+  name: "name",
   age: 10,
   phoneNo: "8790987654",
   address: "D-49, Harsh Vihar",
@@ -16,8 +16,7 @@ const MultiLang = () => {
   };
   return (
     <div>
-      <select
-        onChange={handleChange} className="cursor-pointer">
+      <select onChange={handleChange} className="cursor-pointer">
         <option value="hi" className="cursor-pointer">
           Hindi
         </option>
@@ -30,22 +29,22 @@ const MultiLang = () => {
       </select>
       <div className="mt-4">
         <p>
-          <strong>{t("name")}:</strong> {t(user.name)}
+          <strong>{t("nameLabel")}:</strong> {t("name")}
         </p>
         <p>
-          <strong>{t("age")}:</strong> {user.age}
+          <strong>{t("ageLabel")}:</strong> {t("age")}
         </p>
         <p>
-          <strong>{t("phoneNo")}:</strong> {user.phoneNo}
+          <strong>{t("phoneNoLabel")}:</strong> {t("phoneNo")}
         </p>
         <p>
-          <strong>{t("address")}:</strong> {user.address}
+          <strong>{t("addressLabel")}:</strong> {t("address")}
         </p>
         <p>
-          <strong>{t("hobby")}:</strong> {t(user.hobby)}
+          <strong>{t("hobbyLabel")}:</strong> {t("hobby")}
         </p>
         <p>
-          <strong>{t("color")}:</strong> {t(user.color)}
+          <strong>{t("colorLabel")}:</strong> {t("color")}
         </p>
       </div>
     </div>
