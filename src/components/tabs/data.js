@@ -1,8 +1,9 @@
 import { lazy } from "react";
-import InfiniteScroll from "../InfiniteScroll";
+const InfiniteScroll = lazy(() => import("../InfiniteScroll"));
 const Debounce = lazy(() => import("../Debounce"));
 const MultiLang = lazy(() => import("../multilang/MultiLang"));
 const SimmerUI = lazy(() => import("../simmerui/SimmerUI"));
+const Accordians = lazy(() => import("../accordians/Accordians"));
 
 export const tabData = [
   {
@@ -24,5 +25,10 @@ export const tabData = [
     id: 4,
     title: "Infinite Scroll",
     component: InfiniteScroll,
+  },
+  {
+    id: 5,
+    title: "Accordians",
+    component: Accordians,
   },
 ];
