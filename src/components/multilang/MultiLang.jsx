@@ -1,14 +1,5 @@
 import { useTranslation } from "react-i18next";
 
-const user = {
-  name: "name",
-  age: 10,
-  phoneNo: "8790987654",
-  address: "D-49, Harsh Vihar",
-  hobby: "cricket",
-  color: "blue",
-};
-
 const MultiLang = () => {
   const { t, i18n } = useTranslation();
   const handleChange = (event) => {
