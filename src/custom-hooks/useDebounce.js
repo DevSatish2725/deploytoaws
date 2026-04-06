@@ -1,13 +1,13 @@
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 
-export const useDebounce = () => {
+export const useDebounce = (fn, delay) => {
   const debounceRef = useRef(null);
-  return (fn, delay) => {
+  return useCallback((...args) => {
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
     }
     debounceRef.current = setTimeout(() => {
-      fn();
+      fn(...args);
     }, delay);
-  };
+  }, [fn, delay]) ;
 };
