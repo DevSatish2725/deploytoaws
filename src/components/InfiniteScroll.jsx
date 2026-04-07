@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import User from "./simmerui/User";
+import { useThrottle } from "../custom-hooks/useThrottle";
 
 const InfiniteScroll = () => {
   const [usersList, setUsersList] = useState([]);
   const [showSimmerUI, setShowSimmerUI] = useState(false);
+  const throttle = useThrottle((value) => {
+    console.log("Scroll Y:", value);
+  }, 1000);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,8 +37,8 @@ const InfiniteScroll = () => {
     });
   };
   const handleScroll = () => {
+    throttle(window.scrollY);
     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-      console.log("fetching more usersList");
       fetchUsers();
     }
   };

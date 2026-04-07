@@ -4,6 +4,7 @@ const Debounce = lazy(() => import("../Debounce"));
 const MultiLang = lazy(() => import("../multilang/MultiLang"));
 const SimmerUI = lazy(() => import("../simmerui/SimmerUI"));
 const Accordians = lazy(() => import("../accordians/Accordians"));
+const NestedComments = lazy(() => import("../nested-comments/NestedComments"));
 
 export const tabData = [
   {
@@ -30,5 +31,10 @@ export const tabData = [
     id: 5,
     title: "Accordians",
     component: Accordians,
+  },
+  {
+    id: 6,
+    title: "Nested Comments",
+    component: NestedComments,
   },
 ];
