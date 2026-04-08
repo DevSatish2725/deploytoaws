@@ -5,6 +5,7 @@ const MultiLang = lazy(() => import("../multilang/MultiLang"));
 const SimmerUI = lazy(() => import("../simmerui/SimmerUI"));
 const Accordians = lazy(() => import("../accordians/Accordians"));
 const NestedComments = lazy(() => import("../nested-comments/NestedComments"));
+const Slider = lazy(() => import("../ImageSlider/Slider"));
 
 export const tabData = [
   {
@@ -36,5 +37,10 @@ export const tabData = [
     id: 6,
     title: "Nested Comments",
     component: NestedComments,
+  },
+  {
+    id: 7,
+    title: "Image Slider",
+    component: Slider,
   },
 ];

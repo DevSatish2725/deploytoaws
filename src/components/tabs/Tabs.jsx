@@ -21,7 +21,7 @@ const Tabs = () => {
         ))}
       </div>
       <div>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={null}>
           <ActiveComponent />
         </Suspense>
       </div>
