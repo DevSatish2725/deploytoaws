@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slide from "./Slide";
 import SlideIndicator from "./SlideIndicator";
 
 const Slider = () => {
   const [slideData, setSlideData] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const intervalRef = useRef(null);
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((currentSlide) => (currentSlide + 1) % slideData.length);
+    }, 3000);
+    return () => clearInterval(intervalRef.current);
+  }, [slideData, currentSlide]);
 
   const fetchData = async () => {
     try {
@@ -29,15 +37,26 @@ const Slider = () => {
     }
   };
   const nextSlideHandler = () => {
+    clearInterval(intervalRef.current);
     setCurrentSlide((currentSlide) => (currentSlide + 1) % slideData.length);
   };
   const prevSlideHandler = () => {
+    clearInterval(intervalRef.current);
     setCurrentSlide((currentSlide) =>
       currentSlide === 0 ? slideData.length - 1 : currentSlide - 1,
     );
   };
   const indicatorClickHandler = (activeIndicator) => {
+    clearInterval(intervalRef.current);
     setCurrentSlide(activeIndicator);
+  };
+  const onMouseEnterHandler = () => {
+    clearInterval(intervalRef.current);
+  };
+  const onMouseLeaveHandler = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((currentSlide) => (currentSlide + 1) % slideData.length);
+    }, 3000);
   };
   return (
     <div>
@@ -48,7 +67,15 @@ const Slider = () => {
         {!slideData.length ? (
           <div className="w-lg h-88 bg-gray-400"> </div>
         ) : (
-          <Slide image={slideData[currentSlide]} />
+          <div
+            className={`w-lg h-88 flex transition-transform duration-500 overflow-hidden`}
+            onMouseEnter={onMouseEnterHandler}
+            onMouseLeave={onMouseLeaveHandler}
+          >
+            {slideData.map((data) => (
+              <Slide key={data} image={data} currentSlide={currentSlide} />
+            ))}
+          </div>
         )}
         <span className="cursor-pointer" onClick={nextSlideHandler}>
           ▶️
