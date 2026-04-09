@@ -1,4 +1,5 @@
 import { lazy } from "react";
+const Pagination = lazy(()=> import("../pagination/Pagination"));
 const InfiniteScroll = lazy(() => import("../InfiniteScroll"));
 const Debounce = lazy(() => import("../Debounce"));
 const MultiLang = lazy(() => import("../multilang/MultiLang"));
@@ -43,4 +44,9 @@ export const tabData = [
     title: "Image Slider",
     component: Slider,
   },
+  {
+    id: 8,
+    title: "Pagination",
+    component: Pagination
+  }
 ];
