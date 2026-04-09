@@ -1,10 +1,9 @@
-import Post from "./Post";
+import Product from "./Product";
 
-const Posts = ({ data }) => {
-  console.log(data);
+const Products = ({ data, showSimmerUI }) => {
   return (
     <div>
-      {!data.length ? (
+      {showSimmerUI ? (
         <div className="flex flex-col gap-4">
           {Array(10)
             .fill(0)
@@ -16,9 +15,9 @@ const Posts = ({ data }) => {
             ))}
         </div>
       ) : (
-        <div className="flex flex-col gap-2">
-          {data.map((post) => (
-            <Post key={post.id} {...post} />
+        <div className="flex flex-col gap-4">
+          {data.map((product) => (
+            <Product key={product.id} {...product} />
           ))}
         </div>
       )}
@@ -26,4 +25,4 @@ const Posts = ({ data }) => {
   );
 };
 
-export default Posts;
+export default Products;
