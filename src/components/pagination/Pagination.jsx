@@ -12,8 +12,10 @@ const Pagination = () => {
   const [totalProducts, setTotalProducts] = useState(0);
   const limit = 10;
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    if (Number(paginationType) === 0) {
+      fetchPosts();
+    }
+  }, [paginationType]);
 
   useEffect(() => {
     if (Number(paginationType) === 1) {
@@ -68,6 +70,8 @@ const Pagination = () => {
   };
   const paginationTypeHandler = (e) => {
     setPaginationType(e.target.value);
+    setPosts([]);
+    setProducts([]);
     setCurrentPage(1);
   };
   return (
@@ -89,7 +93,7 @@ const Pagination = () => {
       )}
       <PageCount
         pageCount={
-          paginationType === 0
+          Number(paginationType) === 0
             ? Math.ceil(posts.length / limit)
             : Math.ceil(totalProducts / limit)
         }
