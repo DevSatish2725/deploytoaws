@@ -10,6 +10,7 @@ const Slider = lazy(() => import("../ImageSlider/Slider"));
 const YoutubeLiveChatUI = lazy(
   () => import("../youtube-live-chat-ui/YoutubeLiveChatUI"),
 );
+const Autocomplete = lazy(() => import("../autocomplete/Autocomplete"));
 
 export const tabData = [
   {
@@ -56,5 +57,10 @@ export const tabData = [
     id: 9,
     title: "Youtube Live Chat UI",
     component: YoutubeLiveChatUI,
+  },
+  {
+    id: 10,
+    title: "Autocomplete",
+    component: Autocomplete,
   },
 ];
