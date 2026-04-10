@@ -1,5 +1,5 @@
 import { lazy } from "react";
-const Pagination = lazy(()=> import("../pagination/Pagination"));
+const Pagination = lazy(() => import("../pagination/Pagination"));
 const InfiniteScroll = lazy(() => import("../InfiniteScroll"));
 const Debounce = lazy(() => import("../Debounce"));
 const MultiLang = lazy(() => import("../multilang/MultiLang"));
@@ -7,6 +7,9 @@ const SimmerUI = lazy(() => import("../simmerui/SimmerUI"));
 const Accordians = lazy(() => import("../accordians/Accordians"));
 const NestedComments = lazy(() => import("../nested-comments/NestedComments"));
 const Slider = lazy(() => import("../ImageSlider/Slider"));
+const YoutubeLiveChatUI = lazy(
+  () => import("../youtube-live-chat-ui/YoutubeLiveChatUI"),
+);
 
 export const tabData = [
   {
@@ -47,6 +50,11 @@ export const tabData = [
   {
     id: 8,
     title: "Pagination",
-    component: Pagination
-  }
+    component: Pagination,
+  },
+  {
+    id: 9,
+    title: "Youtube Live Chat UI",
+    component: YoutubeLiveChatUI,
+  },
 ];
