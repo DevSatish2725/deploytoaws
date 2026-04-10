@@ -3,9 +3,9 @@ import Video from "./Video";
 
 const YoutubeLiveChatUI = () => {
   return (
-    <div className="mt-6 flex gap-4 justify-between">
-          <Video />
-          <ChatBox />
+    <div className="mt-6 flex gap-4 justify-between w-[90vw]">
+      <Video />
+      <ChatBox />
     </div>
   );
 };

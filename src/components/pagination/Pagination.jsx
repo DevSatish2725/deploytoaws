@@ -71,7 +71,7 @@ const Pagination = () => {
     setCurrentPage(1);
   };
   return (
-    <div className="mt-10">
+    <div className="mt-10 w-[90vw]">
       <select
         value={paginationType}
         onChange={paginationTypeHandler}
