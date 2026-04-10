@@ -19,7 +19,7 @@ const Debounce = () => {
       <input
         value={input}
         onChange={inputChangeHandler}
-        className="border border-b-black"
+        className="border border-b-black p-2 rounded-md"
       />
       <h1>Search Term:</h1>
       <p>{searchTerm}</p>
