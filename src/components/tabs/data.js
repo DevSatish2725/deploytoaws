@@ -11,6 +11,8 @@ const YoutubeLiveChatUI = lazy(
   () => import("../youtube-live-chat-ui/YoutubeLiveChatUI"),
 );
 const Autocomplete = lazy(() => import("../autocomplete/Autocomplete"));
+const Virtualization = lazy(() => import("../virtualization/Virtualization"));
+const WebWorker = lazy(() => import("../web-worker/WebWorker"));
 
 export const tabData = [
   {
@@ -62,5 +64,15 @@ export const tabData = [
     id: 10,
     title: "Autocomplete",
     component: Autocomplete,
+  },
+  {
+    id: 11,
+    title: "Virtualization",
+    component: Virtualization,
+  },
+  {
+    id: 12,
+    title: "Web Worker Filtering",
+    component: WebWorker,
   },
 ];

@@ -3,14 +3,14 @@ import { Provider } from "react-redux";
 const Counter = lazy(() => import("./components/Counter"));
 const Otp = lazy(() => import("./components/custom-components/Otp"));
 // import Otp from "./components/custom-components/Otp";
-import ErrorBoundary from "./components/ErrorBoundary";
-import Fetch from "./components/Fetch";
-import LocalStorage from "./components/LocalStorage";
-import React1819 from "./components/react1819";
-import WindowSize from "./components/WindowSize";
-import UserContext from "./contexts/UserContext";
+const ErrorBoundary = lazy(() => import("./components/ErrorBoundary"));
+const Fetch = lazy(() => import("./components/Fetch"));
+const LocalStorage = lazy(() => import("./components/LocalStorage"));
+const React1819 = lazy(() => import("./components/react1819"));
+const WindowSize = lazy(() => import("./components/WindowSize"));
+const UserContext = lazy(() => import("./contexts/UserContext"));
 import { store } from "./store";
-import Debounce from "./components/Debounce";
+const Debounce = lazy(() => import("./components/Debounce"));
 import Tabs from "./components/tabs/Tabs";
 
 function App() {

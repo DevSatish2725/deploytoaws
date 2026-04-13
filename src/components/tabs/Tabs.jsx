@@ -21,7 +21,7 @@ const Tabs = () => {
       tabContainerRef.current.scrollLeft -= 100;
   };
   return (
-    <div className=" mx-2 my-2 flex flex-col items-center">
+    <div className=" px-2 py-2 flex flex-col items-center">
       <div className="flex">
         <span className="cursor-pointer" onClick={scrollToLeftHandler}>
           ◀️
