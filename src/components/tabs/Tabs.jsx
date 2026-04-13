@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState } from "react";
 import { tabData } from "./data";
 import Tab from "./Tab";
 const Tabs = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(tabData.length - 1);
   const tabContainerRef = useRef(null);
   const activeIndexHandler = (id) => {
     const matchedIndex = tabData.findIndex((item) => item.id === id);

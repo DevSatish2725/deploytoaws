@@ -23,7 +23,7 @@ const Filter = ({
           value[0]
         );
       } else if (type === "Brand") {
-        return filterValue[type] === value;
+        return filterValue[type].includes(value);
       }
     } else {
       return false;
@@ -56,20 +56,37 @@ const Filter = ({
               {parentData.options
                 ? parentData.options.map((childData) => (
                     <li key={childData.id}>
-                      <input
-                        type="radio"
-                        name={parentData.name}
-                        value={childData.option}
-                        checked={checkedHandler(
-                          parentData.name,
-                          childData.option,
-                        )}
-                        onChange={(event) => {
-                          filterValueHandler({
-                            [parentData.name]: event.target.value,
-                          });
-                        }}
-                      />{" "}
+                      {parentData.name === "Brand" ? (
+                        <input
+                          type="checkbox"
+                          name={parentData.name}
+                          value={childData.option}
+                          checked={checkedHandler(
+                            parentData.name,
+                            childData.option,
+                          )}
+                          onChange={(event) => {
+                            filterValueHandler({
+                              [parentData.name]: [event.target.value],
+                            });
+                          }}
+                        />
+                      ) : (
+                        <input
+                          type="radio"
+                          name={parentData.name}
+                          value={childData.option}
+                          checked={checkedHandler(
+                            parentData.name,
+                            childData.option,
+                          )}
+                          onChange={(event) => {
+                            filterValueHandler({
+                              [parentData.name]: event.target.value,
+                            });
+                          }}
+                        />
+                      )}{" "}
                       <span>
                         {renderFilterLable(parentData.name, childData.option)}
                       </span>

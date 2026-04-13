@@ -24,16 +24,28 @@ const WebWorker = () => {
   }, [products, filterValue]);
 
   const fetchProducts = async () => {
-    const response = await fetch("https://dummyjson.com/products?limit=10");
+    const response = await fetch("https://dummyjson.com/products?limit=20");
     const data = await response.json();
     setProducts(data.products);
     setFilteredList(data.products);
   };
-  const filterValueHandler = (filterValue) => {
-    setFilterValue((prevFilter) => ({
-      ...prevFilter,
-      ...filterValue,
-    }));
+  const filterValueHandler = (filterData) => {
+    const modifiedData = filterData;
+    if (filterData.Brand && filterValue.Brand) {
+      const copyFilterValueData = JSON.parse(JSON.stringify(filterValue));
+      modifiedData.Brand = [...filterData.Brand, ...copyFilterValueData.Brand];
+      if (copyFilterValueData.Brand.includes(filterData.Brand[0])) {
+        modifiedData.Brand = modifiedData.Brand.filter(
+          (brand) => brand !== filterData.Brand[0],
+        );
+      }
+    }
+    setFilterValue((prevFilter) => {
+      return {
+        ...prevFilter,
+        ...modifiedData,
+      };
+    });
   };
 
   const clearFilterHandler = (clearType) => {
