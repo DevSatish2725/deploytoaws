@@ -13,6 +13,9 @@ const YoutubeLiveChatUI = lazy(
 const Autocomplete = lazy(() => import("../autocomplete/Autocomplete"));
 const Virtualization = lazy(() => import("../virtualization/Virtualization"));
 const WebWorker = lazy(() => import("../web-worker/WebWorker"));
+const IntersectionObserverComponent = lazy(
+  () => import("../intersection-observer/IntersectionObserver"),
+);
 
 export const tabData = [
   {
@@ -74,5 +77,10 @@ export const tabData = [
     id: 12,
     title: "Web Worker Filtering",
     component: WebWorker,
+  },
+  {
+    id: 13,
+    title: "Intersection Observer",
+    component: IntersectionObserverComponent,
   },
 ];
