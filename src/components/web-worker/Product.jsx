@@ -13,7 +13,7 @@ const Product = ({
   return (
     <div>
       <Card>
-        <img src={images[0]} alt={title} />
+        <img src={images[0]} alt={title} className="w-full h-62 rounded-2xl" />
         <h1 className="bg-amber-600 text-white p-2 rounded-xl">{brand}</h1>
         <h2 className="font-bold">{title}</h2>
         <p>{description.slice(0, 100)}... More</p>

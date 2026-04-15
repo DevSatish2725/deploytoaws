@@ -76,7 +76,24 @@ const WebWorker = () => {
           ? filteredList.map((product) => (
               <Product key={product.id} {...product} />
             ))
-          : "Loading..."}
+          : Array(10)
+              .fill(0)
+              .map((_, idx) => (
+                <div
+                  key={idx}
+                  className="w-70 rounded-2xl p-2 flex flex-col gap-4"
+                >
+                  <div className="w-full h-62 bg-gray-300 rounded-2xl"></div>
+                  <h1 className="p-2 w-full h-6 bg-gray-300 rounded-2xl"></h1>
+                  <h2 className="p-2 w-full h-8 bg-gray-300 rounded-2xl"></h2>
+                  <p className="p-2 w-full h-20 bg-gray-300 rounded-2xl"></p>
+                  <p className="p-2 w-full h-8 bg-gray-300 rounded-2xl">
+                    <strong></strong>
+                    <strong></strong>
+                  </p>
+                  <strong className="p-2 w-full h-6 bg-gray-300 rounded-2xl"></strong>
+                </div>
+              ))}
       </div>
     </div>
   );

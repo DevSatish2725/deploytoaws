@@ -5,6 +5,10 @@ import { useThrottle } from "../custom-hooks/useThrottle";
 const InfiniteScroll = () => {
   const [usersList, setUsersList] = useState([]);
   const [showSimmerUI, setShowSimmerUI] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalData, setTotalData] = useState(0);
+  const [dataLength, setDataLength] = useState(0);
+  const limit = 20;
   const throttle = useThrottle((value) => {
     console.log("Scroll Y:", value);
   }, 1000);
@@ -14,35 +18,40 @@ const InfiniteScroll = () => {
   }, []);
 
   useEffect(() => {
-    const fetchUserOnMount = async () => {
-      setShowSimmerUI(true);
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-      );
-      const data = await response.json();
-      setShowSimmerUI(false);
-      setUsersList(data);
-    };
+    if (currentPage === 1) {
+      fetchUsers();
+    } else if (currentPage <= Math.ceil(totalData / limit)) {
+      fetchUsers();
+    }
+  }, [currentPage]);
 
-    fetchUserOnMount();
-  }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDataLength(usersList.length);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [usersList]);
 
   const fetchUsers = async () => {
     setShowSimmerUI(true);
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${(currentPage - 1) * limit}`,
+    );
     const data = await response.json();
     setShowSimmerUI(false);
-    setUsersList((prevUsers) => {
-      return [...prevUsers, ...data];
-    });
+    const copyUsersList = JSON.parse(JSON.stringify(usersList));
+    setUsersList([...copyUsersList, ...data.products]);
+    setTotalData(data.total);
   };
   const handleScroll = () => {
     throttle(window.scrollY);
-    if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-      fetchUsers();
+    if (
+      Math.ceil(window.scrollY + window.innerHeight) >=
+      document.body.scrollHeight
+    ) {
+      setCurrentPage((prevValue) => (prevValue += 1));
     }
   };
-
   return (
     <div>
       <div className="flex gap-2 justify-between flex-wrap">
@@ -50,7 +59,9 @@ const InfiniteScroll = () => {
           <User key={data.id} {...data} />
         ))}
       </div>
-      {
+      {dataLength > 0 && dataLength === totalData ? (
+        <h1 className="text-center font-bold my-4">No more data...</h1>
+      ) : (
         <div className="flex gap-2 justify-between flex-wrap">
           {showSimmerUI &&
             Array(10)
@@ -66,7 +77,7 @@ const InfiniteScroll = () => {
                 </div>
               ))}
         </div>
-      }
+      )}
     </div>
   );
 };
