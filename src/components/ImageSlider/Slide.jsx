@@ -7,7 +7,7 @@ const Slide = ({ image, currentSlide }) => {
         transition: "transform 0.5s ease-in-out",
       }}
     >
-      <img src={image} alt={""} className="w-full h-full" />
+      <img src={image} alt={""} loading="lazy" className="w-full h-full" />
     </div>
   );
 };

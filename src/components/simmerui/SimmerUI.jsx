@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import User from "./User";
-
 const SimmerUI = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -8,9 +7,11 @@ const SimmerUI = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch(
+      "https://dummyjson.com/products?limit=10&skip=0",
+    );
     const data = await response.json();
-    setUsers(data);
+    setUsers(data.products);
   };
   return (
     <div>
@@ -30,11 +31,13 @@ const SimmerUI = () => {
             ))}
         </div>
       ) : (
-        <div className="flex gap-2 justify-between flex-wrap">
-          {users.map((data) => (
-            <User key={data.id} {...data} />
-          ))}
-        </div>
+        <>
+          <div className="flex gap-2 justify-between flex-wrap">
+            {users.map((data) => (
+              <User key={data.id} {...data} />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

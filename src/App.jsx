@@ -12,6 +12,9 @@ const UserContext = lazy(() => import("./contexts/UserContext"));
 import { store } from "./store";
 const Debounce = lazy(() => import("./components/Debounce"));
 import Tabs from "./components/tabs/Tabs";
+import { RouterProvider } from "react-router-dom";
+import router from "./app/routes/AppRoutes";
+import AppErrorBoundary from "./ErrorBoundary";
 
 function App() {
   return (
@@ -25,9 +28,13 @@ function App() {
         {/* <ErrorBoundary>
           <Otp length={6} />
         </ErrorBoundary> */}
-        <Tabs />
+        {/* <Tabs /> */}
+
+        {/* <Debounce />   */}
+        <AppErrorBoundary>
+          <RouterProvider router={router} />
+        </AppErrorBoundary>
       </UserContext>
-      {/* <Debounce />   */}
     </Provider>
   );
 }

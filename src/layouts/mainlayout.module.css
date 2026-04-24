@@ -1,0 +1,16 @@
+.header {
+  height: 60px;
+  padding: 12px;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.6);
+}
+.nav_list {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 12px;
+}
+.active_link {
+  color: coral;
+}
