@@ -1,0 +1,7 @@
+:root {
+  --primary-color: #5b5fef;
+}
+
+[data-theme="dark"] {
+  --primary-color: lime;
+}
